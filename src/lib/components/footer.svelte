@@ -1,5 +1,6 @@
 <script>
 	import FooterSection from './footer-section.svelte';
+	import FooterSocial from './footer-social.svelte';
 </script>
 
 <footer>
@@ -25,20 +26,7 @@
 				<span>Contact</span>
 			</FooterSection>
 
-			<div class="flex gap-6 prose-img:my-0">
-				<a>
-					<img src="/images/icon-facebook.svg" alt="Facebook" />
-				</a>
-				<a>
-					<img src="/images/icon-twitter.svg" alt="Twitter" />
-				</a>
-				<a>
-					<img src="/images/icon-pinterest.svg" alt="Pinterest" />
-				</a>
-				<a>
-					<img src="/images/icon-instagram.svg" alt="Instagram" />
-				</a>
-			</div>
+			<FooterSocial />
 		</section>
 	</div>
 </footer>
