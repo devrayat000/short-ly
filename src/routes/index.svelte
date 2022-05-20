@@ -59,7 +59,7 @@
 
 			<div class="relative">
 				<hr
-					class="absolute top-0 md:top-1/2 left-1/2 md:left-0 w-2 md:w-full h-3/4 md:h-2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 bg-primary"
+					class="absolute top-10 md:top-1/2 left-1/2 md:left-0 w-2 md:w-full h-3/4 md:h-2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 bg-primary"
 				/>
 				<div class="flex flex-col md:flex-row md:gap-7 items-stretch relative">
 					<Card title="Brand Recognition" image="/images/icon-brand-recognition.svg">

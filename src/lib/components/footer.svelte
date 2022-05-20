@@ -5,7 +5,7 @@
 
 <footer>
 	<div
-		class="bg-neutral-dark-violet md:flex justify-between gap-10 prose-h4:text-white prose-h4:text-center md:prose-h4:text-left prose-h4:mt-0 prose-a:text-white prose-a:text-center prose-a:no-underline py-10 px-32"
+		class="bg-neutral-dark-violet md:flex justify-between gap-10 prose-h4:text-white prose-h4:text-center md:prose-h4:text-left prose-h4:mt-0 prose-a:text-white prose-a:text-center prose-a:no-underline py-12 md:px-32"
 	>
 		<h2 class="text-white text-center my-0">Shortly</h2>
 		<section

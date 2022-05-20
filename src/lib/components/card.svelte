@@ -5,7 +5,7 @@
 	let clazz = '';
 	export { clazz as class };
 
-	const cls = clsx('prose-h4:mb-0 prose-p:mb-0 relative mt-16', clazz);
+	$: cls = clsx('prose-h4:mb-0 prose-p:mb-0 relative mt-16', clazz);
 </script>
 
 <article class={cls}>

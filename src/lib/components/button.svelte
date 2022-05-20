@@ -11,7 +11,7 @@
 
 	export { clazz as class };
 
-	const cls = clsx(
+	$: cls = clsx(
 		'text-white px-7 py-2 font-medium transition',
 		clazz,
 		variant === 'text' && 'bg-transparent active:bg-slate-100/20',
@@ -34,6 +34,6 @@
 	}
 </script>
 
-<button class={cls} on:click={handleClick} disabled={loading}>
+<button class={cls} on:click={handleClick} disabled={loading} type="button">
 	<slot />
 </button>
