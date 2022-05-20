@@ -14,7 +14,7 @@
 </script>
 
 <section class="prose-hr:my-2 flex flex-col items-stretch gap-5">
-	{#each $urlStore as link (link.shortUrl)}
+	{#each $urlStore as link, i (link.shortUrl + i)}
 		<ShortLink shortUrl={link.shortUrl} longUrl={link.longUrl} />
 	{/each}
 </section>
