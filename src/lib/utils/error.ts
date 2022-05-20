@@ -46,37 +46,37 @@ class DisallowedError extends BaseError {
 	}
 }
 
-export default class ShortUrlError implements BaseError {
-	name!: string;
+export default class ShortUrlError extends BaseError {
 	code: number;
-	message!: string;
 
 	constructor(code: number, cause?: Error) {
-		this.code = code;
+		let error: BaseError;
 
 		switch (code) {
 			case 1:
-				Object.assign(this, new NoUrlSpecified(cause));
+				error = new NoUrlSpecified(cause);
 				break;
 			case 2:
-				Object.assign(this, new InvalidUrl(cause));
+				error = new InvalidUrl(cause);
 				break;
 			case 3:
-				Object.assign(this, new RateError(cause));
+				error = new RateError(cause);
 				break;
 			case 4:
-				Object.assign(this, new IPBlocked(cause));
+				error = new IPBlocked(cause);
 				break;
 			case 5:
-				Object.assign(this, new AlreadyTaken(cause));
+				error = new AlreadyTaken(cause);
 				break;
 			case 10:
-				Object.assign(this, new DisallowedError(cause));
+				error = new DisallowedError(cause);
 				break;
 
 			default:
-				Object.assign(this, new UnknownError(cause));
+				error = new UnknownError(cause);
 				break;
 		}
+		super(error.message, { cause });
+		this.code = code;
 	}
 }

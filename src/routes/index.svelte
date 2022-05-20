@@ -43,7 +43,7 @@
 
 		<Shorten />
 
-		<!-- <ShortLinks /> -->
+		<ShortLinks />
 
 		<Drawer />
 

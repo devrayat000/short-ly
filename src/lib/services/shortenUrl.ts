@@ -16,12 +16,16 @@ export interface ShortenUrlResponse {
 }
 
 export async function shortenUrl(url: string) {
-	const res = await fetch('https://api.shrtco.de/v2/shorten?url=' + url);
-	const resData = (await res.json()) as ShortenUrlResponse;
+	try {
+		const res = await fetch('https://api.shrtco.de/v2/shorten?url=' + url);
+		const resData = (await res.json()) as ShortenUrlResponse;
 
-	if (resData.error_code) {
-		throw new ShortUrlError(resData.error_code);
+		if (resData.error_code) {
+			throw new ShortUrlError(resData.error_code);
+		}
+
+		return resData;
+	} catch (error) {
+		throw new ShortUrlError(1, error as any);
 	}
-
-	return resData;
 }

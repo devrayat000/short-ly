@@ -28,11 +28,13 @@
 	}
 </script>
 
-<div class="bg-white rounded-md p-5">
-	<h5 class="truncate font-medium">{longUrl}</h5>
-	<hr />
-	<h5 class="text-primary truncate font-medium">{shortUrl}</h5>
-	<Button fullWidth on:click={handleCopy} secondary={copying} class="mt-3">
+<article class="bg-white rounded-md p-5 md:py-3 md:flex items-center gap-5">
+	<div class="md:flex-1 md:flex justify-between items-center">
+		<h5 class="truncate font-medium">{longUrl}</h5>
+		<hr class="md:hidden" />
+		<h5 class="text-primary truncate font-medium">{shortUrl}</h5>
+	</div>
+	<Button on:click={handleCopy} secondary={copying} class="w-full md:w-auto mt-3 md:mt-auto">
 		{copying ? 'Copied!' : 'Copy'}
 	</Button>
-</div>
+</article>
