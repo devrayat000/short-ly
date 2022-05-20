@@ -1,6 +1,6 @@
 import ShortUrlError from '$lib/utils/error';
 
-interface ShortenUrlResponse {
+export interface ShortenUrlResponse {
 	ok: boolean;
 	error_code?: number;
 	result: {

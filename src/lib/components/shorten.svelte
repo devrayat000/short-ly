@@ -1,7 +1,20 @@
 <script lang="ts">
+	import { shortenUrl, type ShortenUrlResponse } from '$lib/services/shortenUrl';
+	import type { UrlStore } from '$lib/store/shorten-url-store';
+	import { getContext } from 'svelte';
+
 	import Button from './button.svelte';
 
 	let longUrl: string = '';
+	// let error: ShortUrlError;
+
+	let promise: Promise<ShortenUrlResponse>;
+
+	async function handleShortening() {
+		promise = shortenUrl(longUrl);
+	}
+
+	const urlStore = getContext<UrlStore>('shorten');
 </script>
 
 <main class="relative bg-primary-bg p-5 rounded-md overflow-hidden my-10">
@@ -13,6 +26,9 @@
 			placeholder="Shorten a link here..."
 			bind:value={longUrl}
 		/>
-		<Button>Shorten It!</Button>
+		{#if $urlStore?.error}
+			<p class="text-red italic">{$urlStore.error.message}</p>
+		{/if}
+		<Button on:click={handleShortening}>Shorten It!</Button>
 	</section>
 </main>
