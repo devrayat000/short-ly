@@ -3,20 +3,39 @@
 
 	import Footer from '$lib/components/footer.svelte';
 	import Boost from '$lib/components/boost.svelte';
-	import Button from '$lib/components/button.svelte';
 	import Card from '$lib/components/card.svelte';
 	import Header from '$lib/components/header.svelte';
 	import { createUrlStore, type UrlStore } from '$lib/store/shorten-url-store';
 	import Hero from '$lib/components/hero.svelte';
 	import Shorten from '$lib/components/shorten.svelte';
 	import ShortLinks from '$lib/components/short-links.svelte';
+	import Drawer from '$lib/components/drawer.svelte';
+	import { writable } from 'svelte/store';
+	import { browser } from '$app/env';
 
 	const urlStore = createUrlStore();
 
-	const a = setContext<UrlStore>('shorten', urlStore);
+	const drawerOpen = writable(false);
+
+	setContext<UrlStore>('shorten', urlStore);
+	setContext('drawer', drawerOpen);
+
+	$: {
+		if (browser) {
+			if ($drawerOpen) {
+				document.body.style.overflow = 'hidden';
+			} else {
+				document.body.removeAttribute('style');
+			}
+		}
+	}
 </script>
 
-<div class="prose max-w-none prose-h1:mb-0">
+<svelte:head>
+	<title>Shortly - Url Shortner</title>
+</svelte:head>
+
+<div class="prose max-w-none prose-h1:mb-0 prose-hr:my-2">
 	<div class="p-6">
 		<Header />
 
@@ -25,6 +44,8 @@
 		<Shorten />
 
 		<ShortLinks />
+
+		<Drawer />
 
 		<section>
 			<header class="prose-h2:text-center prose-p:text-center">

@@ -29,9 +29,10 @@
 </script>
 
 <div class="bg-white rounded-md p-5">
-	<h5>{longUrl}</h5>
+	<h5 class="truncate font-medium">{longUrl}</h5>
 	<hr />
-	<h5 class="text-primary">{shortUrl}</h5>
-	<Button fullWidth on:click={handleCopy} secondary={copying}>{copying ? 'Copied!' : 'Copy'}</Button
-	>
+	<h5 class="text-primary truncate font-medium">{shortUrl}</h5>
+	<Button fullWidth on:click={handleCopy} secondary={copying} class="mt-3">
+		{copying ? 'Copied!' : 'Copy'}
+	</Button>
 </div>
