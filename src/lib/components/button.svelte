@@ -14,7 +14,7 @@
 	const cls = clsx(
 		'text-white px-7 py-2 font-medium transition',
 		clazz,
-		variant === 'text' && 'bg-transparent active:bg-slate-50/20',
+		variant === 'text' && 'bg-transparent active:bg-slate-100/20',
 		variant === 'filled' && 'bg-primary active:bg-primary/90',
 		{
 			['rounded-full']: pill,

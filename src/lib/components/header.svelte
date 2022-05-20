@@ -10,7 +10,7 @@
 </script>
 
 <header class="flex justify-between items-center">
-	<section>
+	<section class="mr-10">
 		<h1>Shortly</h1>
 	</section>
 	<nav class="md:flex-1 gap-5">
