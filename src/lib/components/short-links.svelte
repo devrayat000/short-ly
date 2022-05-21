@@ -1,13 +1,20 @@
 <script lang="ts">
+	import { getContext } from 'svelte';
 	import Link from '$lib/models/link';
+
 	import { createLocalStorage } from '$lib/store/local-storage';
+	import type { UrlStore } from '$lib/store/shorten-url-store';
 	import ShortLink from './short-link.svelte';
 
-	const urlStore = createLocalStorage<Link[]>('shortly.urls', [
-		new Link('https://rel.ink/l4Isj', 'https://www.frontendmentor.io/everybody'),
-		new Link('https://rel.ink/l4Isj', 'https://www.frontendmentor.io'),
-		new Link('https://rel.ink/l4Isj', 'https://www.frontendmentor.io')
-	]);
+	const url = getContext<UrlStore>('shorten');
+	const urlStore = createLocalStorage<Link[]>('shortly.urls', []);
+
+	$: {
+		if ($url?.data && 'result' in $url.data) {
+			const link = $url.data.result;
+			urlStore.update((prev) => [...prev, new Link(link.full_short_link, link.original_link)]);
+		}
+	}
 </script>
 
 <section class="flex flex-col items-stretch gap-5">

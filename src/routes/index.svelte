@@ -32,7 +32,24 @@
 </script>
 
 <svelte:head>
-	<title>Shortly - Url Shortner</title>
+	<title>Shortly - URL Shortner</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="description" content="Shorten your links in a blink!" />
+	<meta name="keywords" content="shortly,short,trimly,trim,shortcode" />
+	<meta name="robots" content="index,nofollow" />
+	<!-- Open Graph -->
+	<meta property="og:title" content="Shortly - URL Shortner" />
+	<meta property="og:url" content="https://trimly.netlify.app/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="Shorten your links in a blink!" />
+	<meta property="og:image" content="/demo/desktop-preview.jpg" />
+	<meta property="og:image:alt" content="Shortly - Demo" />
+	<!-- Twitter -->
+	<meta name="twitter:title" content="Shortly - URL Shortner" />
+	<meta name="twitter:description" content="Shorten your links in a blink!" />
+	<meta name="twitter:image" content="/demo/desktop-preview.jpg" />
+	<meta name="twitter:image:alt" content="Shortly - Demo" />
+	<!-- <meta name="twitter:card" content="website" /> -->
 </svelte:head>
 
 <div class="prose max-w-none prose-h1:mb-0 prose-hr:my-2">

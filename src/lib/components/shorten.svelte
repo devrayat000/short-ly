@@ -11,7 +11,8 @@
 	const urlStore = getContext<UrlStore>('shorten');
 	urlStore.subscribe(console.log);
 	async function handleShortening() {
-		urlStore.shortenUrl(longUrl);
+		await urlStore.shortenUrl(longUrl);
+		longUrl = '';
 	}
 
 	$: cls = clsx(

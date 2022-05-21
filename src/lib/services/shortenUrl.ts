@@ -1,8 +1,13 @@
 import ShortUrlError from '$lib/utils/error';
 
-export interface ShortenUrlResponse {
-	ok: boolean;
-	error_code?: number;
+interface ResError {
+	ok: false;
+	error_code: number;
+	error: string;
+}
+
+interface ResData {
+	ok: true;
 	result: {
 		code: string;
 		short_link: string;
@@ -15,17 +20,18 @@ export interface ShortenUrlResponse {
 	};
 }
 
+export type ShortenUrlResponse = ResData | ResError;
+
 export async function shortenUrl(url: string) {
-	try {
-		const res = await fetch('https://api.shrtco.de/v2/shorten?url=' + url);
-		const resData = (await res.json()) as ShortenUrlResponse;
+	const res = await fetch('https://api.shrtco.de/v2/shorten?url=' + url).then(
+		(r) => r,
+		(e) => console.log(e)
+	);
+	const resData = (await res?.json()) as ShortenUrlResponse;
 
-		if (resData.error_code) {
-			throw new ShortUrlError(resData.error_code);
-		}
-
-		return resData;
-	} catch (error) {
-		throw new ShortUrlError(1, error as any);
+	if ('error_code' in resData) {
+		throw new ShortUrlError(resData.error_code, new Error(resData.error));
 	}
+
+	return resData;
 }
