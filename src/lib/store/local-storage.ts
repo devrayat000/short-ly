@@ -5,6 +5,7 @@ import { writable } from 'svelte/store';
 export function createLocalStorage<T>(key: string, initial?: T) {
 	onMount(() => {
 		const localItem = localStorage.getItem(key);
+
 		if (!localItem) {
 			localStorage.setItem(key, JSON.stringify(initial));
 		}

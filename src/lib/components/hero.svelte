@@ -3,9 +3,13 @@
 </script>
 
 <article class="md:flex flex-row-reverse items-start gap-20">
-	<header>
-		<img src="/images/illustration-working.svg" alt="Hero" />
-	</header>
+	<aside>
+		<img
+			src="/images/illustration-working.svg"
+			alt="Hero"
+			class="relative max-w-[150%] md:-right-32 md:max-w-full"
+		/>
+	</aside>
 	<main class="prose-p:text-center md:prose-p:text-left">
 		<h2 class="text-center md:text-left md:text-6xl md:mt-14 md:mb-2">
 			More than just shorter link

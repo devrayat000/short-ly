@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { slide, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
 	import type { Writable } from 'svelte/store';
 

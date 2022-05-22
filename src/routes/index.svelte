@@ -52,7 +52,7 @@
 	<!-- <meta name="twitter:card" content="website" /> -->
 </svelte:head>
 
-<div class="prose max-w-none prose-h1:mb-0 prose-hr:my-2">
+<div class="prose max-w-none prose-h1:mb-0 prose-hr:my-2 overflow-x-hidden">
 	<div class="p-6 md:px-20">
 		<Header />
 

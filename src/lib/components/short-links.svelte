@@ -6,12 +6,12 @@
 	import type { UrlStore } from '$lib/store/shorten-url-store';
 	import ShortLink from './short-link.svelte';
 
-	const url = getContext<UrlStore>('shorten');
+	const { data } = getContext<UrlStore>('shorten');
 	const urlStore = createLocalStorage<Link[]>('shortly.urls', []);
 
 	$: {
-		if ($url?.data && 'result' in $url.data) {
-			const link = $url.data.result;
+		if ($data && 'result' in $data) {
+			const link = $data.result;
 			urlStore.update((prev) => [...prev, new Link(link.full_short_link, link.original_link)]);
 		}
 	}

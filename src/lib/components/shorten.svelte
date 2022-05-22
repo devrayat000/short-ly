@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { shortenUrl, type ShortenUrlResponse } from '$lib/services/shortenUrl';
 	import type { UrlStore } from '$lib/store/shorten-url-store';
 	import clsx from 'clsx';
 	import { getContext } from 'svelte';
@@ -8,16 +7,17 @@
 
 	let longUrl: string = '';
 
-	const urlStore = getContext<UrlStore>('shorten');
-	urlStore.subscribe(console.log);
+	const { data, error, loading, shortenUrl } = getContext<UrlStore>('shorten');
+	data.subscribe(console.log);
+
 	async function handleShortening() {
-		await urlStore.shortenUrl(longUrl);
+		await shortenUrl(longUrl);
 		longUrl = '';
 	}
 
 	$: cls = clsx(
 		'rounded py-2 px-4 w-full focus-visible:outline-none ring-primary focus-visible:ring-2 transition-all',
-		!!$urlStore?.error && 'placeholder:text-secondary ring-secondary'
+		!!$error && 'placeholder:text-secondary ring-secondary'
 	);
 </script>
 
@@ -32,13 +32,13 @@
 				class={cls}
 				placeholder="Shorten a link here..."
 				bind:value={longUrl}
-				aria-invalid={!!$urlStore?.error}
+				aria-invalid={!!$error}
 			/>
-			{#if $urlStore?.error}
+			{#if $error}
 				<p
 					class="text-secondary italic mt-1 md:my-0 md:absolute md:left-0 md:-bottom-5 w-auto my-0 text-xs md:text-sm"
 				>
-					{$urlStore.error.message}
+					{$error.message}
 				</p>
 			{/if}
 		</div>

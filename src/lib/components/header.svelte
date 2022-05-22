@@ -17,7 +17,7 @@
 		<button
 			id="burger"
 			type="button"
-			class="flex flex-col items-stretch justify-center gap-1.5 rounded-full p-3 md:hidden"
+			class="flex flex-col items-stretch justify-center gap-1.5 rounded-full transition-colors p-3 md:hidden active:bg-slate-200 focus:bg-transparent focus-visible:bg-slate-200 focus-visible:outline-none"
 			on:click={handleDrawerToggle}
 		>
 			<span class="h-0.5 w-7 bg-gray-400 rounded-lg" />

@@ -25,7 +25,7 @@ export type ShortenUrlResponse = ResData | ResError;
 export async function shortenUrl(url: string) {
 	const res = await fetch('https://api.shrtco.de/v2/shorten?url=' + url).then(
 		(r) => r,
-		(e) => console.log(e)
+		(e) => console.log(e.message)
 	);
 	const resData = (await res?.json()) as ShortenUrlResponse;
 

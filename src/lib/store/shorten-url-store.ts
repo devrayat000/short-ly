@@ -10,27 +10,32 @@ export interface UrlStoreModel {
 	data: ShortenUrlResponse | null;
 }
 
-export interface UrlStore extends Writable<UrlStoreModel> {
+export interface UrlStore {
+	loading: Writable<boolean>;
+	error: Writable<ShortUrlError | null>;
+	data: Writable<ShortenUrlResponse | null>;
 	shortenUrl(url: string): Promise<void>;
 }
 
 export function createUrlStore() {
-	const { set, subscribe, update } = writable<UrlStoreModel>();
+	const loading = writable(false);
+	const error = writable<ShortUrlError | null>(null);
+	const data = writable<ShortenUrlResponse | null>(null);
 
 	async function shortenUrl(url: string) {
-		set({
-			loading: true,
-			data: null,
-			error: null
-		});
+		loading.set(true);
+		error.set(null);
+		data.set(null);
 
 		try {
-			const data = await shorten(url);
-			update((prev) => ({ ...prev, data, loading: false }));
-		} catch (error) {
-			update((prev) => ({ ...prev, error: error as ShortUrlError, loading: false }));
+			const resData = await shorten(url);
+			data.set(resData);
+		} catch (err) {
+			error.set(err as ShortUrlError);
+		} finally {
+			loading.set(false);
 		}
 	}
 
-	return { set, subscribe, update, shortenUrl };
+	return { shortenUrl, loading, data, error };
 }
