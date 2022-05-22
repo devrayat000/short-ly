@@ -32,21 +32,30 @@
 </script>
 
 <svelte:head>
-	<title>Shortly - URL Shortner</title>
+	<title>Shortly: URL Shortner - Short URLs</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<meta name="description" content="Shorten your links in a blink!" />
+	<meta
+		name="description"
+		content="Shorten your links in a blink! Free URL shortener to create perfect URLs for your business"
+	/>
 	<meta name="keywords" content="shortly,short,trimly,trim,shortcode" />
 	<meta name="robots" content="index,nofollow" />
 	<!-- Open Graph -->
-	<meta property="og:title" content="Shortly - URL Shortner" />
+	<meta property="og:title" content="Shortly: URL Shortner - Short URLs" />
 	<meta property="og:url" content="https://trimly.netlify.app/" />
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="Shorten your links in a blink!" />
+	<meta
+		property="og:description"
+		content="Shorten your links in a blink! Free URL shortener to create perfect URLs for your business"
+	/>
 	<meta property="og:image" content="/demo/desktop-preview.jpg" />
-	<meta property="og:image:alt" content="Shortly - Demo" />
+	<meta property="og:image:alt" content="Shortly Preview" />
 	<!-- Twitter -->
-	<meta name="twitter:title" content="Shortly - URL Shortner" />
-	<meta name="twitter:description" content="Shorten your links in a blink!" />
+	<meta name="twitter:title" content="Shortly: URL Shortner - Short URLs" />
+	<meta
+		name="twitter:description"
+		content="Shorten your links in a blink! Free URL shortener to create perfect URLs for your business"
+	/>
 	<meta name="twitter:image" content="/demo/desktop-preview.jpg" />
 	<meta name="twitter:image:alt" content="Shortly - Demo" />
 	<!-- <meta name="twitter:card" content="website" /> -->
