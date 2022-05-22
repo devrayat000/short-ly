@@ -12,7 +12,7 @@
 			class="absolute top-0 left-0 h-full w-full m-0 bg-primary-bg"
 		/> -->
 		<article class="py-20 relative prose-h2:mt-0">
-			<h2 class="font-bold text-center text-white">Boost your links today</h2>
+			<h2 id="boost-title" class="font-bold text-center text-white">Boost your links today</h2>
 			<div class="grid place-items-center">
 				<Button pill>Get Started</Button>
 			</div>

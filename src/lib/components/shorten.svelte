@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { UrlStore } from '$lib/store/shorten-url-store';
 	import clsx from 'clsx';
-	import { getContext } from 'svelte';
+	import { getContext, onDestroy } from 'svelte';
 
 	import Button from './button.svelte';
 
 	let longUrl: string = '';
 
 	const { data, error, loading, shortenUrl } = getContext<UrlStore>('shorten');
-	data.subscribe(console.log);
+	const unsubscribe = data.subscribe(console.log);
 
 	async function handleShortening() {
 		await shortenUrl(longUrl);
@@ -19,6 +19,8 @@
 		'rounded py-2 px-4 w-full focus-visible:outline-none ring-primary focus-visible:ring-2 transition-all',
 		!!$error && 'placeholder:text-secondary ring-secondary'
 	);
+
+	onDestroy(unsubscribe);
 </script>
 
 <main

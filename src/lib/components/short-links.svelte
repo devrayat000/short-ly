@@ -7,18 +7,20 @@
 	import ShortLink from './short-link.svelte';
 
 	const { data } = getContext<UrlStore>('shorten');
-	const urlStore = createLocalStorage<Link[]>('shortly.urls', []);
+	const urlLocalStore = createLocalStorage<Link[]>('shortly.urls', []);
 
 	$: {
 		if ($data && 'result' in $data) {
 			const link = $data.result;
-			urlStore.update((prev) => [...prev, new Link(link.full_short_link, link.original_link)]);
+			urlLocalStore.update((prev) => [new Link(link.full_short_link, link.original_link), ...prev]);
 		}
 	}
 </script>
 
 <section class="flex flex-col items-stretch gap-5">
-	{#each $urlStore as link, i (link.shortUrl + i)}
+	<!-- {#if $urlLocalStore} -->
+	{#each $urlLocalStore as link, i (link.shortUrl)}
 		<ShortLink shortUrl={link.shortUrl} longUrl={link.longUrl} />
 	{/each}
+	<!-- {/if} -->
 </section>
