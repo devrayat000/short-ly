@@ -29,7 +29,7 @@
 		>
 			<img src="/images/icon-pinterest.svg" alt="Pinterest" />
 		</a>
-		<a class={socialLinkCls}>
+		<a href="https://www.instagram.com/zul.rayat" class={socialLinkCls}>
 			<img src="/images/icon-instagram.svg" alt="Instagram" />
 		</a>
 	</div>
