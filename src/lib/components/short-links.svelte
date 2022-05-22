@@ -13,7 +13,7 @@
 		if ($data && 'result' in $data) {
 			const link = $data.result;
 			urlLocalStore.update((prev) => [
-				new Link({ id: link.code, longUrl: link.full_short_link, shortUrl: link.original_link }),
+				new Link({ id: link.code, shortUrl: link.full_short_link, longUrl: link.original_link }),
 				...prev
 			]);
 		}
